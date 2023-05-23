@@ -1,0 +1,31 @@
+@use "variables" as *;
+@keyframes fade-in-out{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.fade-in-out{
+    animation: fade-in-out 5s infinite alternate;
+}
+@keyframes blink{
+    0%{
+        background-color: var(--soft-blue);
+    }
+    50%{
+        background-color: cornflowerblue;
+    }
+    80%{
+        background-color: var(--dark-blue);
+    }
+    90%{
+        background-color: cornflowerblue;
+    }
+    100%{
+        background-color: var(--soft-blue);
+    } 
+
+}

@@ -1,0 +1,98 @@
+@forward "mixins";
+@use "functions" as *;
+@use "variables" as *;
+
+.join{
+    @include breakpoint-up(medium){
+        margin-right: ConvertToRem(40);
+        margin-left: ConvertToRem(40);
+    }
+   
+    &__box{
+        padding: 4em 0;
+        display: grid;
+        grid-gap: 1em;
+        align-items: center;
+        grid-template-columns: minmax(1fr, 1fr) repeat(2, minmax(ConvertToRem(200) , ConvertToRem(600))) minmax(
+            1fr,
+            1fr
+          );
+        @include breakpoint-down(medium){
+            @include SetFlex(column);
+            padding: 1em 0;
+        }  
+    }
+    h2{
+        font-size: ConvertToRem(54);
+        text-align: center;
+        color: var(--black);  
+        text-shadow: ConvertToRem(3) ConvertToRem(3) ConvertToRem(1) var(--dark-blue);
+        @include breakpoint-down(small){
+            font-size: ConvertToRem(35);
+        }
+    }
+    h3{
+        font-size: ConvertToRem(39);
+        text-align: center;
+        color: var(--black);  
+        text-shadow: ConvertToRem(3) ConvertToRem(3) ConvertToRem(1) var(--dark-blue);
+        font-style: italic;
+        @include breakpoint-down(small){
+            font-size: ConvertToRem(26);
+        }  
+    }
+    img{
+        box-shadow: 
+        0px 32px 19px -16px rgba(66, 68, 90, 1);
+        @include breakpoint-up(medium){
+            height: ConvertToRem(450);
+            width: ConvertToRem(600);
+        }
+        @include breakpoint-down(medium){
+            height: ConvertToRem(250);
+            width: ConvertToRem(400);
+        }
+        @include breakpoint-down(small){
+            height: ConvertToRem(160);
+            width: ConvertToRem(260); 
+        }
+       
+    }
+    p{
+        color: var(--black);
+        @include breakpoint-down(medium){
+            text-align: center;
+            margin-left: ConvertToRem(50);
+            margin-right: ConvertToRem(50);
+        }
+    }
+    .from-left {
+        grid-column: 2 / 3 ;  
+    }
+      
+    .from-right {
+        grid-column: 3 / 4;
+    }
+    .butto{
+       @include SetFlex(column);
+       margin-bottom: ConvertToRem(50); 
+    }
+    a{
+        display:block;
+        background: var(--dark-blue);
+        color: white;
+        text-align: center;
+        width: fit-content;
+        border: none;
+        font-size: ConvertToRem(20);
+        padding: ConvertToRem(8) ConvertToRem(25) ConvertToRem(8) ConvertToRem(25);
+        border-radius: ConvertToRem(12);
+        transition: transform 200ms ease-in-out;
+    }
+    a:hover{
+        transform: scale(1.05);
+    }
+}
+
+  
+  

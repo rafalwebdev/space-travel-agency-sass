@@ -1,0 +1,82 @@
+@use "variables" as *;
+@use "functions" as *;
+@forward "mixins";
+
+
+.offert{
+    position: relative;
+    
+    margin-left: ConvertToRem(40);
+    margin-right: ConvertToRem(40);
+    .flex{
+        @include breakpoint-up(large){
+            @include SetFlex();
+        }
+        @include breakpoint-down(medium){
+            @include SetFlex(column)
+        }
+       
+    }
+    h2{
+        color: var(--black);
+    }
+    &__card{
+        padding: ConvertToRem(128) 0 0 ;
+        max-width: 35ch;
+        margin-bottom: ConvertToRem(50);
+        color: white;
+        transition: transform 200ms ease-in-out;
+    }
+    .card-one{
+        background: url(../images/spacegame.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+    .card-two{
+        background: url(../images/spacegames.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+    .card-three{
+        background: url(../images/spacegams.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+    &__card:hover{
+        transform: scale(1.1);
+    }
+    &__card:not(:last-child){
+        @include breakpoint-up(large){
+            margin-right: ConvertToRem(50);
+        }
+        
+    }
+    .heading{
+        font-size: ConvertToRem(54);
+        text-align: center;  
+        text-shadow: ConvertToRem(3) ConvertToRem(3) ConvertToRem(1) var(--dark-blue);
+        @include breakpoint-down(small){
+            font-size: ConvertToRem(35);
+        }
+    }
+    &__box{
+        padding: ConvertToRem(24);
+        background: linear-gradient(
+            rgba(0,0,0,0.01) 40%, 
+            rgba(0,0,0,1) 100%);
+    }
+
+    &__title{
+        h2{
+            font-weight: 700;
+            color: white;
+        }
+    }
+    &__button{
+        display: inline-block;
+        background: var(--dark-blue);
+        color: white;
+        padding: ConvertToRem(4);
+        border-radius: ConvertToRem(10);
+    }
+}

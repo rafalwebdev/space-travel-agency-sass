@@ -1,0 +1,139 @@
+@use "variables" as *;
+@use "functions" as *;
+@forward "mixins";
+@use "animations" as *;
+
+footer{
+    display: grid;
+    justify-content: end;
+    align-items: end;
+    position: relative;
+    
+    @include breakpoint-down(small){
+        justify-content: center;
+        align-items: center;  
+    }
+    height: auto;
+    padding: ConvertToRem(30) ConvertToRem(80);
+    animation: blink 25s infinite;  
+
+
+.kontener{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-gap: ConvertToRem(20);
+    @include breakpoint-down(medium){
+        grid-template-columns: 2fr 1fr;
+    }
+    @include breakpoint-down(small){
+        grid-template-columns: 1fr;
+    }
+}
+
+h2{
+    position: relative;
+    color: white;
+    font-weight: 500;
+    margin-bottom: ConvertToRem(15);
+
+}
+h2::before{
+    content: '';
+    position: absolute;
+    bottom:  ConvertToRem(-5);
+    left: 0;
+    width: ConvertToRem(50);
+    height: ConvertToRem(2);
+    background: yellow;
+}
+p{
+    color: white
+}
+
+.sci{
+    margin-top: ConvertToRem(20);
+    display: grid;
+    grid-template-columns: repeat(4, 3,125 rem);
+    grid-gap: ConvertToRem(10);
+
+
+li{
+    list-style: none;
+}
+a{
+    display: inline-block;
+    width:ConvertToRem(48);
+    height: ConvertToRem(48);
+    background: #3e56cb;
+    display: grid;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: ConvertToRem(4);
+}
+
+a:hover{
+    background: #6380fe;
+}
+
+a .fa{
+    color: white;
+}
+}
+.quicklinks{
+    position: relative;
+
+
+    li{
+        list-style: none;
+
+        a{
+            color: #f7f7f7;
+            text-decoration: none;
+
+        }
+
+        a:hover{
+            color: #ffeb3b;
+        }
+    }
+}
+.info{
+    position: relative;
+
+li{
+    display: grid;
+    grid-template-columns: ConvertToRem(30) 1fr;
+    margin-bottom: ConvertToRem(16);
+}
+span:nth-child(1){
+    color: #fff;
+    font-size: ConvertToRem(20);
+}
+
+span{
+    color: #fff;
+}
+
+a{
+    color: #f7f7f7;
+    text-decoration: none;
+}
+a:hover{
+color: #ffeb3b;
+}
+}
+}
+.copyright{
+    padding: ConvertToRem(1) ConvertToRem(40);
+    border-top: ConvertToRem(1) solid #111;
+    text-align: center;
+    animation: blink 25s infinite;
+
+
+    p{
+        color: white;
+    }
+}

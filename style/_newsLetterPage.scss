@@ -1,0 +1,60 @@
+@use "variables" as *;
+@use "functions" as *;
+@forward "mixins";
+
+
+.newsletter{
+   margin-bottom: ConvertToRem(90);
+    &__container{
+        @include SetFlex(column);
+        
+    }
+    &__form{
+        font-size: ConvertToRem(24);
+        @include SetFlex(column);
+        
+    }
+    label{
+        margin-bottom: ConvertToRem(35);
+        text-align: center;
+        color: var(--black);
+        margin-left: ConvertToRem(30);
+        margin-right: ConvertToRem(30);
+    }
+    input[type=text ]{
+        @include breakpoint-up(medium){
+            width: ConvertToRem(400);
+        }
+        @include breakpoint-down(medium){
+            width: ConvertToRem(200);
+        }
+        text-align: center;
+        font-style: italic;
+        font-size: ConvertToRem(20);
+        margin-bottom: ConvertToRem(35);
+        color: var(--black);
+    }
+    input[type=submit]{
+        display:block;
+        background: var(--dark-blue);
+        color:white;
+        text-align: center;
+        width: fit-content;
+        border: none;
+        font-size: ConvertToRem(20);
+        padding: ConvertToRem(8) ConvertToRem(25) ConvertToRem(8) ConvertToRem(25);
+        transition: transform 200ms ease-in-out;
+    }
+    input[type=submit]:hover{
+        transform: scale(1.05);
+    }
+    h2{
+        font-size: ConvertToRem(54);
+        text-align: center;
+        color: var(--black);  
+        text-shadow: ConvertToRem(3) ConvertToRem(3) ConvertToRem(1) var(--dark-blue);
+        @include breakpoint-down(small){
+            font-size: ConvertToRem(35);
+        }
+    }
+}

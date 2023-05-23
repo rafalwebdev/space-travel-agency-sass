@@ -1,0 +1,51 @@
+@use "variables" as *;
+@use "functions" as *;
+@forward "mixins";
+
+
+.about-us{
+    
+    h2{
+        font-size: ConvertToRem(54);
+        color: var(--black);
+        text-align: center;  
+        text-shadow: ConvertToRem(3) ConvertToRem(3) ConvertToRem(1) var(--dark-blue);
+        @include breakpoint-down(small){
+            font-size: ConvertToRem(35);
+        }
+    }
+
+    &__container{
+        display: grid;
+        grid-template-columns:repeat(1 , 1fr);
+        @include breakpoint-up(medium){
+            margin-left: ConvertToRem(60);
+            margin-right: ConvertToRem(60);
+        }
+        @include breakpoint-up(large){
+            margin-left: 0;
+            margin-right: 0;
+            grid-template-columns:repeat(3 , 1fr);
+        }
+        
+    }
+
+    &__box{
+        padding: ConvertToRem(30);
+        img{
+            height: 100%;
+            width: 100%;
+            display: block;
+            overflow: hidden;
+            margin-bottom: ConvertToRem(15);
+            box-shadow: 
+            0px 32px 19px -26px rgba(66, 68, 90, 1);
+        }
+    }
+    &__descript{
+        text-align: center;
+        display: block;
+        color: var(--black);
+    }
+    
+}

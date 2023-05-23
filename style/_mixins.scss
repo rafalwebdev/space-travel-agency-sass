@@ -1,0 +1,26 @@
+@media (min-width: 64em){
+    //TO DO
+}
+//640px , 1024px , 1400px
+$width-up: ("medium":"40em" , "large":"64em" , "huge":"87em");
+//639px , 1023px , 1399px
+$width-down: ("small":"39.9375em" , "medium":"63.9375em" , "large":"87,4375em"); 
+
+@mixin breakpoint-up($size) {
+    @media (min-width: map-get($width-up , $size)) {
+        @content;       
+    }
+}
+
+@mixin breakpoint-down($size) {
+    @media (max-width: map-get($width-down , $size)) {
+        @content;       
+    }
+}
+
+@mixin SetFlex($flex-direction:row , $justify-content:center ,$align-items:center) {
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}

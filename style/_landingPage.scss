@@ -1,0 +1,46 @@
+@use "variables" as *;
+@use "functions" as *;
+@forward "mixins";
+
+.landing-page{
+    @include SetFlex(column);
+    text-align: center;
+    min-height: 100vh;
+    background-image: url(../images/landingbackground.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: -1;
+    
+    &__content{
+        margin: ConvertToRem(90);
+        @include SetFlex(column);
+        
+        h1{
+            font-size: ConvertToRem(72);
+            color: white;
+            text-shadow: ConvertToRem(4) ConvertToRem(4) ConvertToRem(1) var(--light-brown);
+            @include breakpoint-down(small){
+                font-size: ConvertToRem(45);
+            }
+        }
+        a{
+            background-color: var(--soft-brown);
+            padding: ConvertToRem(9);
+            padding-left: ConvertToRem(20);
+            padding-right: ConvertToRem(20);
+            border: ConvertToRem(1) solid black;
+            border-radius: ConvertToRem(25);
+            font-size: ConvertToRem(21);
+            color: white;
+            text-shadow: 1px 1px 1px black;
+            transition: transform 200ms ease-in-out;;
+            
+        }
+        a:hover{
+            background-image: linear-gradient(to right,var(--soft-brown) , var(--light-brown));
+            transform: scale(1.1);  
+        } 
+    }
+
+}
